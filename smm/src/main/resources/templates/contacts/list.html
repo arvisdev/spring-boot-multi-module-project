@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+Don't forget that the following dependencies in the POM must be there
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+</dependency>
+
+-->
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Spring Framework Guru</title>
+        <meta charset="UTF-8"/>
+    </head>  
+    <body>
+
+        <h1>Contact Names</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>City, State</th>
+            </tr>
+            <tr th:each="person : ${contacts}">
+                <td th:text="${person.id}">123</td>
+                <td th:text="${person.firstName}">John</td>
+                <td th:text="${person.lastName}">Smith</td>
+                <td th:text="${person.address}">Green Street</td>
+                <td th:text="${person.cityState}">Portland, Or</td>
+            </tr>
+        </table>
+        
+        Note: To connect to the H2Database during development, got to  <a href="http://localhost:8080/h2-console">H2 Database</a>
+    </body>
+</html>
